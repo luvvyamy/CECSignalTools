@@ -76,9 +76,6 @@ public static class SignalRshwConversor
         var activeBits = new HashSet<int>();
         var lateBytes = new List<byte>();
         
-        Console.WriteLine(string.Join(" ", rshwSignals[17000..18000]));
-
-        Console.WriteLine(rshwSignals.Where(x => x == 0).Count());
         var newFrameIndexes = rshwSignals.Select((x, index) => new { x = x, index = index }).Where(x => x.x == 0)
             .Select(x => x.index).ToList();
 
@@ -170,11 +167,6 @@ public static class SignalRshwConversor
             samples.AddRange(negativeZero);
         samplePositive = true;
         
-        
-        Console.WriteLine(frames);
-        Console.WriteLine("Frames to Seconds:" + frames / 60f);
-        Console.WriteLine("Seconds: " + samples.Count / 48000);
-        
         using WaveFileWriter writer = new(outputPath + ".wav",
             WaveFormat.CreateCustomFormat(WaveFormatEncoding.Pcm, 48000, 2, 192000, 4, 16));
 
@@ -244,9 +236,7 @@ public static class SignalRshwConversor
                     sampleCount++;
                 }
             }
-
-            Console.WriteLine(sampleCount);
-            Console.WriteLine(startSamples.Count);
+            
             for (var i = 0; i < 9600 * 4 - sampleCount; i++)
             {
                 startSamples.AddRange(samplePositive ? positiveZero : negativeZero);
@@ -317,9 +307,7 @@ public static class SignalRshwConversor
                     sampleCount++;
                 }
             }
-
-            Console.WriteLine(sampleCount);
-            Console.WriteLine(endSamples.Count);
+            
             for (var i = 0; i < 9600 * 4 - sampleCount; i++)
             {
                 endSamples.AddRange(samplePositive ? positiveZero : negativeZero);
