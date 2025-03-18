@@ -86,7 +86,7 @@ public static class SignalRshwConversor
             // Read the bits from the current frame
             var currentFrameBits = new HashSet<int>();
             
-            
+            // Get each bit from the current frame
             for (var j = newFrameIndexes[i] + 1; j < newFrameIndexes[i + 1]; j++)
                 currentFrameBits.Add(rshwSignals[j]);
             
@@ -186,7 +186,7 @@ public static class SignalRshwConversor
         
         // Start and end commands
         
-        var startString = Encoding.ASCII.GetBytes("$$A900     $$S     $$A900     $$TCHILE-2025-ENE$     $$2STAR-RESTORATION$");
+        var startString = Encoding.ASCII.GetBytes("$$A900     $$S     $$A900     $$TCHILE-2025-FEB$     $$2STAR-RESTORATION$");
         var endString = Encoding.ASCII.GetBytes("$$E     $$M     $$1INTERMEDIO$");
         
         
