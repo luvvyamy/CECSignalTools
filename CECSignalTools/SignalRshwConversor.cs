@@ -186,7 +186,7 @@ public static class SignalRshwConversor
         
         // Start and end commands
         
-        var startString = Encoding.ASCII.GetBytes("$$A900     $$S     $$A900     $$TCHILE-2025-FEB$     $$2STAR-RESTORATION$");
+        var startString = Encoding.ASCII.GetBytes("$$A900     $$S     $$A900     $$TIVY-ISI-2025-MAR$     $$2CEC-CUSTOM-SHOW$");
         var endString = Encoding.ASCII.GetBytes("$$E     $$M     $$1INTERMEDIO$");
         
         
